@@ -31,6 +31,7 @@ func read_input(array *[]int, input_array *[]string) {
 
 	fmt.Scanln(&array_size)
 	raw_input, _ = reader.ReadString('\n')
+	raw_input = strings.Trim(raw_input, "\n")
 
 	*array = make([]int, array_size)
 	*input_array = strings.Split(raw_input, " ")
@@ -49,6 +50,7 @@ func main() {
 	var input_array []string
 
 	read_input(&array, &input_array)
+	fmt.Printf("\n%v\n", input_array)
 	reverse_array(input_array, &array)
 	fmt.Printf("\n%v\n", array)
 }
