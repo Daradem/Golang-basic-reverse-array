@@ -23,17 +23,35 @@ func Abs(x int) int {
 	return x
 }
 
-func read_input(array *[]int, input_array *[]string) {
+func Pow(base int, pow int) int {
+	var index int = 1
+	var result int = base
+
+	for ; index < pow; index++ {
+		result *= base
+	}
+
+	return result
+}
+
+func read_input(array *[]int, input_array *[]string) bool {
 	var array_size int = 0
 	var raw_input string
 	var reader = bufio.NewReader(os.Stdin)
 
 	fmt.Scanln(&array_size)
+
+	if array_size < 1 || array_size > Pow(10, 3) {
+		return false
+	}
+
 	raw_input, _ = reader.ReadString('\n')
 	raw_input = strings.Trim(raw_input, "\n")
 
 	*array = make([]int, array_size)
 	*input_array = strings.Split(raw_input, " ")
+
+	return true
 }
 
 func reverse_array(input []string, array *[]int) {
@@ -48,8 +66,9 @@ func main() {
 	var array []int
 	var input_array []string
 
-	read_input(&array, &input_array)
-	fmt.Printf("\n%v\n", input_array)
-	reverse_array(input_array, &array)
-	fmt.Printf("\n%v\n", array)
+	if read_input(&array, &input_array) {
+		fmt.Printf("\n%v\n", input_array)
+		reverse_array(input_array, &array)
+		fmt.Printf("\n%v\n", array)
+	}
 }
