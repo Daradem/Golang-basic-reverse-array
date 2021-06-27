@@ -1,10 +1,9 @@
 /**
-  main.go
-  Brief:  This is the main program flow, it generates a color scheme for the Tilix terminal requesting colors in hex code to the
-          user and finally writting a Json file.
+main.go
+Brief:  This is the main program flow, it reverses an integer array.
 
-  @author Mauricio Portugués Castellanos.
-  @version    1.0, 2021-06-27.
+@author Mauricio Portugués Castellanos.
+@version    1.0, 2021-06-27.
 */
 
 package main
