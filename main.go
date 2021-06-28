@@ -51,6 +51,12 @@ func read_input(array *[]int, input_array *[]string) bool {
 	*array = make([]int, array_size)
 	*input_array = strings.Split(raw_input, " ")
 
+	for _, number := range *input_array {
+		if value, _ := strconv.Atoi(number); value < 1 || value > Pow(10, 4) {
+			return false
+		}
+	}
+
 	return true
 }
 
